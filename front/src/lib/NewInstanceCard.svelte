@@ -9,7 +9,7 @@
 
 <style>
 	.new-instance {
-		@apply bg-gray-100 p-4 rounded-lg border-gray-200 border;
+		@apply bg-gray-100 p-4 rounded-md border-gray-200 border;
 		@apply hover:scale-105;
 		@apply duration-300;
 	}

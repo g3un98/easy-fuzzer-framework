@@ -17,7 +17,7 @@
 
 <style>
 	.instance {
-		@apply bg-emerald-100 p-4 rounded-lg border-emerald-200 border;
+		@apply bg-emerald-100 p-4 rounded-md border-emerald-200 border;
 		@apply hover:scale-105;
 		@apply duration-300;
 	}

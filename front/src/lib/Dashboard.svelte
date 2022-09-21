@@ -12,7 +12,7 @@
 
 <style>
 	.dashboard {
-		@apply bg-emerald-200 p-4 rounded-lg drop-shadow-lg border-emerald-300 border;
+		@apply bg-emerald-200 p-4 rounded-md drop-shadow-lg border-emerald-300 border;
 		@apply col-span-1 sm:col-span-2 lg:col-span-3;
 		@apply mb-4;
 	}
