@@ -2,6 +2,13 @@
 	import Dashboard from '$lib/Dashboard.svelte';
 	import NewInstanceCard from '$lib/NewInstanceCard.svelte';
 	import InstanceCard from '$lib/InstanceCard.svelte';
+	
+	/** @type {import("./$types").PageData} */
+	export let data;
+	
+	data.Reservations.forEach((i) => {
+	  console.log(i);
+	});
 
 	const instanceData = [
 		{
