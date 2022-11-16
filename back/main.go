@@ -37,5 +37,5 @@ func main() {
 	app.Post("/instance", postInstance)
 	app.Delete("/instance/:instance_id", deleteInstance)
 
-	app.Listen(":3000")
+	app.Listen(":8080")
 }
