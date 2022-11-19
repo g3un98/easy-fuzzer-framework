@@ -4,7 +4,7 @@
     const { protocol, hostname } = $page.url;
 </script>
 
-<iframe src="{protocol}//{hostname}:3000}" />
+<iframe src="{protocol}//{hostname}:3000" />
 
 <style>
     iframe {
