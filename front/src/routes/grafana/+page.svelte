@@ -1,10 +1,10 @@
 <script>
 	import { page } from '$app/stores';
 
-	const { protocol, hostname } = $page.url;
+	const { hostname } = $page.url;
 </script>
 
-<iframe src="{protocol}//{hostname}:3000" />
+<iframe title="Prometheus" src="http://{hostname}:3000" />
 
 <style>
 	iframe {
