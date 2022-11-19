@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	export let data;
 
 	const { Architecture, ImageId, InstanceId, InstanceType, Tags, State } = data;

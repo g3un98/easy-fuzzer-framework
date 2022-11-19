@@ -1,9 +1,8 @@
-<script lang="ts">
+<script>
 	import Dashboard from '$lib/components/Dashboard.svelte';
 	import NewInstanceCard from '$lib/components/NewInstanceCard.svelte';
 	import InstanceCard from '$lib/components/InstanceCard.svelte';
 
-	/** @type {import("./$types").PageData} */
 	export let data;
 
 	const instances = [];
@@ -25,6 +24,3 @@
 		<InstanceCard {instance} />
 	{/each}
 </div>
-
-<style>
-</style>

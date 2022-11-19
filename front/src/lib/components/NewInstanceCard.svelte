@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faPlus } from '@fortawesome/free-solid-svg-icons';
 </script>

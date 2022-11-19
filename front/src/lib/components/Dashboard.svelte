@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="dashboard">
 	<ul>
 		<li>Total time: 00:00:00</li>
