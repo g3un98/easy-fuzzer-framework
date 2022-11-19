@@ -17,7 +17,7 @@
 	});
 </script>
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<div class="p-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 	<Dashboard />
 	<NewInstanceCard />
 	{#each instances as instance (instance.InstanceId)}

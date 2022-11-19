@@ -10,7 +10,7 @@
   - Access key is very **important**!
   - Be careful not to expose your key.
 
-### EFF Main Server
+### EFF Server
 
 1. Launch instane from `ami-0c8832fce913849e1`.
 2. Create AWS config file into `back/config`.
