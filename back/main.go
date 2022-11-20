@@ -35,6 +35,8 @@ func main() {
 	app.Get("/instance", getInstances)
 	app.Get("/instance/:instance_id", getInstance)
 	app.Post("/instance", postInstance)
+	app.Put("/instance/:instance_id", startInstance)
+	app.Patch("/instance/:instance_id", stopInstance)
 	app.Delete("/instance/:instance_id", deleteInstance)
 
 	app.Listen(":8080")

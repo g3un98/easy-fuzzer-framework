@@ -67,6 +67,46 @@ func postInstance(c *fiber.Ctx) (err error) {
 	return c.Send(outputByte)
 }
 
+func startInstance(c *fiber.Ctx) (err error) {
+	input := ec2.StartInstancesInput{
+		InstanceIds: []string{
+			c.Params("instance_id"),
+		},
+	}
+
+	output, err := client.StartInstances(context.TODO(), &input)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	outputByte, err := sonic.Marshal(&output)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	return c.Send(outputByte)
+}
+
+func stopInstance(c *fiber.Ctx) (err error) {
+	input := ec2.StopInstancesInput{
+		InstanceIds: []string{
+			c.Params("instance_id"),
+		},
+	}
+
+	output, err := client.StopInstances(context.TODO(), &input)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	outputByte, err := sonic.Marshal(&output)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	return c.Send(outputByte)
+}
+
 func deleteInstance(c *fiber.Ctx) (err error) {
 	input := ec2.TerminateInstancesInput{
 		InstanceIds: []string{

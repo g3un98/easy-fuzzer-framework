@@ -11,6 +11,7 @@
     async function newInstance() {
         const response = await fetch("/api/instance", {
             method: "POST",
+            mode: "same-origin",
             body: JSON.stringify({
                 "MinCount": 1,
                 "MaxCount": 1,

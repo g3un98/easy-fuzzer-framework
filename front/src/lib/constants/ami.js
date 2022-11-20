@@ -19,3 +19,7 @@ export const amis = [
         "os": "Windows"
     },
 ]
+
+export function getAmi(amiId) {
+    return amis.filter((a) => a.amiId == amiId)[0] || null;
+}

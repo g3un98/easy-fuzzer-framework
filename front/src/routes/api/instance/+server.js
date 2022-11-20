@@ -18,7 +18,7 @@ export async function GET({ url }) {
 
 	const response = await fetch(`http://${hostname}:8080/instance`, {
 		method: 'GET',
-		mode: 'no-cors'
+		mode: 'same-origin'
 	});
 
 	return response;
@@ -32,7 +32,7 @@ export async function POST({ request, url }) {
 
 	const response = await fetch(`http://${hostname}:8080/instance`, {
 		method: 'POST',
-		mode: 'no-cors'
+		mode: 'same-origin'
 	});
 
 	return response;

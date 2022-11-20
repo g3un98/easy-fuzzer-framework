@@ -8,10 +8,10 @@
 
     amis.forEach((a) => {
         switch (a.os) {
-        case "ubuntu":
+        case "Ubuntu":
                 ubuntuAmis.push(a.amiId);
                 break;
-        case "windows":
+        case "Windows":
                 windowsAmis.push(a.amiId);
                 break;
         default:

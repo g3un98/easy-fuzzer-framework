@@ -8,6 +8,6 @@
 
 <style>
 	iframe {
-		@apply block w-full h-full border-none overflow-x-hidden overflow-y-auto;
+		@apply block w-full min-h-screen h-full border-none overflow-x-hidden overflow-y-auto;
 	}
 </style>
