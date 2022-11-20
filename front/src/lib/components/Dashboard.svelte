@@ -1,10 +1,46 @@
-<div class="dashboard">
-	<ul>
-		<li>Total time: 00:00:00</li>
-		<li>Total instnace: 00</li>
-		<li>Total count: 00000</li>
-		<li>Total crash: 000</li>
-	</ul>
+<script>
+    import { amis } from "$lib/constants/ami";
+
+    export let instances;
+
+    const ubuntuAmis = [];
+    const windowsAmis = [];
+
+    amis.forEach((a) => {
+        switch (a.os) {
+        case "ubuntu":
+                ubuntuAmis.push(a.amiId);
+                break;
+        case "windows":
+                windowsAmis.push(a.amiId);
+                break;
+        default:
+        }
+    });
+
+    let ubuntuCount = 0;
+    let windowsCount = 0;
+
+    instances.forEach((instance) => {
+        if (ubuntuAmis.includes(instance.ImageId)) {
+            ubuntuCount++;
+        } else if (windowsAmis.includes(instance.ImageId)) {
+            windowsCount++;
+        }
+        
+    });
+</script>
+
+<div class="dashboard flex flex-col gap-4">
+    <div class="text-xl font-bold">Total instance: {instances.length}</div>
+    <div>
+        <div class="text-lg font-semibol">OS</div>
+        <div class="pt-1 pl-2">
+            <div>Ubuntu: {ubuntuCount}</div>
+            <div>Windows: {windowsCount}</div>
+        </div>
+    </div>
+
 </div>
 
 <style>
