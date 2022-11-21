@@ -13,20 +13,31 @@
 ### EFF Server
 
 1. Launch instane from `ami-0c8832fce913849e1`.
-2. Create AWS config file into `back/config`.
+2. Add security-group rules on `Security > Inbound rules`.
+  - Source 0.0.0.0/0, Port range 80
+  - Source 0.0.0.0/0, Port range 9102
+  - Source 0.0.0.0/0, Port range 9090
+  - Source 0.0.0.0/0, Port range 3000
+  - Source 0.0.0.0/0, Port range 8080
+  - Source 0.0.0.0/0, Port range 8125
+3. Connect to instance.
+```shell
+ssh -i "EFF-KeyPair.pem" ubuntu@{your ip or domaiin}
+```
+4. Create AWS config file into `back/config`.
 ```toml
 [default]
 region=ap-northeast-2
 ```
-3. Create AWS credential file into `back/credentials`.
+5. Create AWS credential file into `back/credentials`.
 ```toml
 [default]
 aws_access_key_id=AKIAIOSFODNN7EXAMPLE
 aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
-4. Fix cron service using `sudo crontab -e`
+6. Fix cron service using `sudo crontab -e`
   - Remove comment symbol(`#`) in `@reboot` line.
-5. Reboot your instnace!
+7. Reboot your instnace!
 
 ### Grafana
 

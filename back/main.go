@@ -42,5 +42,8 @@ func main() {
 	app.Get("/key-pair", getKeyPair)
 	app.Post("/key-pair", postKeyPair)
 
+	app.Get("/security-group", getSecurityGroup)
+	app.Post("/security-group", postSecurityGroup)
+
 	app.Listen(":8080")
 }
