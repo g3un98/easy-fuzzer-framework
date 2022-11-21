@@ -1,11 +1,23 @@
 <script>
 	import { page } from '$app/stores';
+	import { getAmi } from '$lib/constants/ami';
 
 	export let data;
 
-	const { Architecture, ImageId, InstanceId, InstanceType, Tags, State } = data;
+	const { Instance } = data;
+	const {
+		Architecture,
+		ImageId,
+		InstanceId,
+		InstanceType,
+		Tags,
+		State,
+		UserData,
+		PublicIpAddress
+	} = Instance;
 
 	const Name = Tags.filter((t) => t['Key'] === 'Name')[0]['Value'] || null;
+	const ami = getAmi(ImageId);
 
 	async function startInstance() {
 		await fetch(`/api/instance/${$page.params.slug}`, {
@@ -36,9 +48,23 @@
 	{#if Name}
 		<div class="text-4xl text-amber-400 font-bold">{Name}</div>
 	{/if}
-	<div>ImageId: {ImageId}</div>
-	<div>InstanceType: {InstanceType}</div>
-	<div>State: {State.Name} ({State.Code})</div>
+
+	<div>
+		{#if ami}
+			<div>AMI: {ami.amiName}</div>
+		{:else}
+			<div>ImageId: {ImageId}</div>
+		{/if}
+		<div>Instance Type: {InstanceType}</div>
+		<div>Public IP: {PublicIpAddress}</div>
+		<div>State: {State.Name} ({State.Code})</div>
+		{#if UserData}
+			<div class="p-4 bg-white rounded-lg">
+				{UserData}
+			</div>
+		{/if}
+	</div>
+
 	<div class="flex gap-4">
 		{#if State.Code == 80}
 			<button

@@ -1,7 +1,7 @@
 <script>
 	import { amis } from '$lib/constants/ami';
 
-	export let instances;
+	export let Instances;
 
 	const ubuntuAmis = [];
 	const windowsAmis = [];
@@ -20,20 +20,28 @@
 
 	let ubuntuCount = 0;
 	let windowsCount = 0;
+	let totalTime = 0;
 
-	instances.forEach((instance) => {
+	Instances.forEach((instance) => {
 		if (ubuntuAmis.includes(instance.ImageId)) {
 			ubuntuCount++;
+			if (i.State.Code == 16)
+				// running
+				totalTime += new Date() - new Date(i.LaunchTime);
 		} else if (windowsAmis.includes(instance.ImageId)) {
 			windowsCount++;
+			if (i.State.Code == 16)
+				// running
+				totalTime += new Date() - new Date(i.LaunchTime);
 		}
 	});
 </script>
 
 <div class="dashboard flex flex-col gap-4">
-	<div class="text-xl font-bold">Total instance: {instances.length}</div>
+	<div class="text-xl font-bold">Total Instance: {Instances.length}</div>
 	<div>
-		<div class="text-lg font-semibol">OS</div>
+		<div class="text-lg font-semibold">Total Time: {new Date(totalTime).getMinutes()} min</div>
+		<div class="text-lg font-semibold">OS</div>
 		<div class="pt-1 pl-2">
 			<div>Ubuntu: {ubuntuCount}</div>
 			<div>Windows: {windowsCount}</div>

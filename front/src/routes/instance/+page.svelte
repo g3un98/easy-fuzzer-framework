@@ -1,4 +1,5 @@
 <script>
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { amis } from '$lib/constants/ami';
 	import { instanceTypes } from '$lib/constants/instance';
@@ -32,14 +33,15 @@
 						]
 					}
 				],
-				UserData: userDataVal
+				UserData: userDataVal,
+				KeyName: 'EFF-KeyPair'
 			}),
 			headers: {
 				'content-type': 'application/json'
 			}
 		});
 
-		goto('/');
+		if (browser) goto('/');
 	}
 </script>
 

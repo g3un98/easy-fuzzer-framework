@@ -1,6 +1,13 @@
 export async function load({ fetch }) {
-	const response = await fetch('/api/instance');
-	const instances = await response.json();
+	let response = await fetch('/api/key-pair');
+	let keyPairs = await response.json();
+	keyPairs = keyPairs.KeyPairs;
 
-	return instances;
+	response = await fetch('/api/instance');
+	let instances = await response.json();
+	instances = instances.Reservations;
+	instances = instances.map((i) => i.Instances);
+	instances = instances.reduce((acc, cur) => acc.concat(cur));
+
+	return { KeyPairs: keyPairs, Instances: instances };
 }
