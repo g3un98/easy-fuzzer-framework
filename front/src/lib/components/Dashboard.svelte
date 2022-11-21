@@ -25,14 +25,14 @@
 	Instances.forEach((instance) => {
 		if (ubuntuAmis.includes(instance.ImageId)) {
 			ubuntuCount++;
-			if (i.State.Code == 16)
+			if (instance.State.Code == 16)
 				// running
-				totalTime += new Date() - new Date(i.LaunchTime);
+				totalTime += new Date() - new Date(instance.LaunchTime);
 		} else if (windowsAmis.includes(instance.ImageId)) {
 			windowsCount++;
-			if (i.State.Code == 16)
+			if (instance.State.Code == 16)
 				// running
-				totalTime += new Date() - new Date(i.LaunchTime);
+				totalTime += new Date() - new Date(instance.LaunchTime);
 		}
 	});
 </script>
