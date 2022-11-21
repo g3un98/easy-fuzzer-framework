@@ -26,13 +26,16 @@ export async function GET({ url }) {
 
 export async function POST({ request, url }) {
     const data = await readData(request.body.getReader());
-    console.log(JSON.parse(String.fromCharCode(...data)));
 
 	const { hostname } = url;
 
 	const response = await fetch(`http://${hostname}:8080/instance`, {
 		method: 'POST',
-		mode: 'same-origin'
+		mode: 'same-origin',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: String.fromCharCode(...data)
 	});
 
 	return response;
