@@ -12,4 +12,4 @@ COPY --from=builder /eff/back/main /main
 
 EXPOSE 8080
 
-CMD ["/main"]
+CMD ["sleep", "infinity"]
