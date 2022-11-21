@@ -3,7 +3,7 @@ export async function load({ fetch }) {
 	let keyPairs = await response.json();
 	keyPairs = keyPairs.KeyPairs;
 
-	let response = await fetch('/api/security-group');
+	response = await fetch('/api/security-group');
 	let securityGroups = await response.json();
 	securityGroups = securityGroups.SecurityGroups;
 
