@@ -3,7 +3,7 @@ import { readData } from '$lib/utils';
 export async function GET({ url }) {
 	const { hostname } = url;
 
-	const response = await fetch(`http://${hostname}:8080/instance`, {
+	const response = await fetch(`http://${hostname}:8080/key-pair`, {
 		method: 'GET',
 		mode: 'same-origin'
 	});
@@ -16,7 +16,7 @@ export async function POST({ request, url }) {
 
 	const { hostname } = url;
 
-	const response = await fetch(`http://${hostname}:8080/instance`, {
+	const response = await fetch(`http://${hostname}:8080/key-pair`, {
 		method: 'POST',
 		mode: 'same-origin',
 		headers: {

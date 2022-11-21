@@ -39,5 +39,8 @@ func main() {
 	app.Patch("/instance/:instance_id", stopInstance)
 	app.Delete("/instance/:instance_id", deleteInstance)
 
+	app.Get("/key-pair", getKeyPair)
+	app.Post("/key-pair", postKeyPair)
+
 	app.Listen(":8080")
 }

@@ -1,46 +1,44 @@
 <script>
-    import { amis } from "$lib/constants/ami";
+	import { amis } from '$lib/constants/ami';
 
-    export let instances;
+	export let instances;
 
-    const ubuntuAmis = [];
-    const windowsAmis = [];
+	const ubuntuAmis = [];
+	const windowsAmis = [];
 
-    amis.forEach((a) => {
-        switch (a.os) {
-        case "Ubuntu":
-                ubuntuAmis.push(a.amiId);
-                break;
-        case "Windows":
-                windowsAmis.push(a.amiId);
-                break;
-        default:
-        }
-    });
+	amis.forEach((a) => {
+		switch (a.os) {
+			case 'Ubuntu':
+				ubuntuAmis.push(a.amiId);
+				break;
+			case 'Windows':
+				windowsAmis.push(a.amiId);
+				break;
+			default:
+		}
+	});
 
-    let ubuntuCount = 0;
-    let windowsCount = 0;
+	let ubuntuCount = 0;
+	let windowsCount = 0;
 
-    instances.forEach((instance) => {
-        if (ubuntuAmis.includes(instance.ImageId)) {
-            ubuntuCount++;
-        } else if (windowsAmis.includes(instance.ImageId)) {
-            windowsCount++;
-        }
-        
-    });
+	instances.forEach((instance) => {
+		if (ubuntuAmis.includes(instance.ImageId)) {
+			ubuntuCount++;
+		} else if (windowsAmis.includes(instance.ImageId)) {
+			windowsCount++;
+		}
+	});
 </script>
 
 <div class="dashboard flex flex-col gap-4">
-    <div class="text-xl font-bold">Total instance: {instances.length}</div>
-    <div>
-        <div class="text-lg font-semibol">OS</div>
-        <div class="pt-1 pl-2">
-            <div>Ubuntu: {ubuntuCount}</div>
-            <div>Windows: {windowsCount}</div>
-        </div>
-    </div>
-
+	<div class="text-xl font-bold">Total instance: {instances.length}</div>
+	<div>
+		<div class="text-lg font-semibol">OS</div>
+		<div class="pt-1 pl-2">
+			<div>Ubuntu: {ubuntuCount}</div>
+			<div>Windows: {windowsCount}</div>
+		</div>
+	</div>
 </div>
 
 <style>

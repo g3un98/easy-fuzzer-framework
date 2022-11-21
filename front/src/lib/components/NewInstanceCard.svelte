@@ -3,8 +3,8 @@
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faPlus } from '@fortawesome/free-solid-svg-icons';
 </script>
- 
-<div class="new-instance grid place-content-center" on:click={() => goto("/instance")}>
+
+<div class="new-instance grid place-content-center" on:click={() => goto('/instance')}>
 	<Fa class="text-gray-300 text-2xl" icon={faPlus} />
 </div>
 
