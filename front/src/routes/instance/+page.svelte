@@ -33,7 +33,7 @@
 						]
 					}
 				],
-				UserData: userDataVal,
+				UserData: btoa(userDataVal),
 				KeyName: 'EFF-KeyPair'
 			}),
 			headers: {
